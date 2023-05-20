@@ -10,7 +10,8 @@ import {
   ContactListButton,
 } from './ContactList.styled';
 
-const ContactList = ({ contacts, onDeleteContact }) => (
+export default function ContactList({ contacts, onDeleteContact }) {
+  return (
   <ContactListContainer>
     {contacts.map(({ id, name, number }) => (
       <ContactListItem key={id}>
@@ -18,14 +19,15 @@ const ContactList = ({ contacts, onDeleteContact }) => (
         <ContactListText>{number}</ContactListText>
         <ContactListButton type="button" onClick={() => onDeleteContact(id)}>
           <FaTimesCircle
-            style={{color: 'red', marginRight: '5'}}
+            style={{ color: 'red', marginRight: '5' }}
           /> Delete
         </ContactListButton>
       </ContactListItem>
     ))}
   </ContactListContainer>
 );
-
+}
+  
 ContactList.propTypes = {
   contacts: PropTypes.array,
   id: PropTypes.string,
@@ -33,5 +35,3 @@ ContactList.propTypes = {
   number: PropTypes.string,
   onDeleteContact: PropTypes.func.isRequired,
 };
-
-export default ContactList;
