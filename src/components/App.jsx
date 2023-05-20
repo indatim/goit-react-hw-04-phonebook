@@ -16,7 +16,7 @@ import Filter from 'components/ContactFilter/ContactFilter';
 export default function App() {
 
   const getDataLocalStorage = (
-    key = 'id',
+    key = 'contacts',
     defaultContacts = dataContacts
   ) => {
     return JSON.parse(window.localStorage.getItem(key)) ?? defaultContacts;
